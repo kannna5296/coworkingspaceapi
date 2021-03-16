@@ -31,13 +31,5 @@ namespace CoworkingspaceAPI.Controllers
             return await _context.Coworkingspace.ToListAsync();
         }
 
-        //// GET: /Coworkingspace/?lon={lon}&lat={lat}&distance={distance}
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Coworkingspace>>> Get(float lon, float lat, int distance)
-        //{
-            
-
-        //    return await _context.Coworkingspace.ToListAsync();
-        //}
     }
 }
