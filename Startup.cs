@@ -18,6 +18,8 @@ namespace CoworkingspaceAPI
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,6 +35,16 @@ namespace CoworkingspaceAPI
 
             services.AddDbContext<CoworkingspaceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      //CORSポリシー追加（仮）
+                                      builder.WithOrigins("https://localhost:44303/");
+                                  });
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -53,6 +65,8 @@ namespace CoworkingspaceAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
