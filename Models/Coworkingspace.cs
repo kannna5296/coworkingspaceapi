@@ -26,7 +26,7 @@ namespace CoworkingspaceAPI.Models
         public string Url { get; set; }
 
         [Column(TypeName = "varchar(200)")]
-        public string Descirption { get; set; }
+        public string Description { get; set; }
 
         [Required]
         public int Area_id { get; set; }
