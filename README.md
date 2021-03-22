@@ -1,2 +1,3 @@
 # coworkingspaceapi
-コワーキングスペースのAPI
+コワーキングスペースのAPI<br>
+MapApp内で使用
