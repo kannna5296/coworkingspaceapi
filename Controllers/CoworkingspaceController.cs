@@ -18,7 +18,7 @@ namespace CoworkingspaceAPI.Controllers
 
         private CoworkingspaceContext _context;
 
-        public CoworkingspaceController(ILogger<CoworkingspaceController> logger,CoworkingspaceContext context)
+        public CoworkingspaceController(ILogger<CoworkingspaceController> logger, CoworkingspaceContext context)
         {
             _logger = logger;
             _context = context;
@@ -28,8 +28,18 @@ namespace CoworkingspaceAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Coworkingspace>>> Get()
         {
-            return await _context.Coworkingspace.ToListAsync();
-        }
+            var result = new List<Coworkingspace>();
+            try
+            {
+                result = await _context.Coworkingspace.ToListAsync();
+            }
+            catch
+            {
+                _logger.LogError("コワーキングスペース情報を取得できませんでした。");
+            }
 
+            return result;
+
+        }
     }
 }
