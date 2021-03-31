@@ -12,7 +12,7 @@ namespace CoworkingspaceAPI.Models
         [Key]
         public int Cw_id { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column(TypeName = "nvarchar(200)")]
         [Required]
         public string Name { get; set; }
 
@@ -25,7 +25,7 @@ namespace CoworkingspaceAPI.Models
         [Column(TypeName = "varchar(200)")]
         public string Url { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column(TypeName = "nvarchar(200)")]
         public string Description { get; set; }
 
         [Required]
